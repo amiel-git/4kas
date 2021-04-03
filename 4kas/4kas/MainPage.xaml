@@ -29,13 +29,13 @@
             <StackLayout Orientation="Horizontal" >
             
                 <Label x:Name="tempLabel"
-                       Text="17" 
                        FontSize="150" 
                        TextColor="{StaticResource whiteColor}" 
                        FontAttributes="Bold"
                        />
                 <Label x:Name="tempTypeLabel" 
                        Text="°C" 
+                       IsVisible="False"
                        FontSize="100" 
                        TextColor="{StaticResource whiteColor}" 
                        FontAttributes="Bold"
@@ -45,7 +45,6 @@
              </StackLayout>
 
             <Label  x:Name="conditionLabel"
-                    Text="Clouds" 
                     FontSize="30" 
                     TextColor="{StaticResource whiteColor}" 
                     Margin="0,-10,0,0"
@@ -55,7 +54,6 @@
         </StackLayout>
 
         <Label x:Name="locationLabel"
-               Text="Quezon City"
                FontSize="20"
                FontFamily="Poppins"
                HorizontalOptions="Center"
