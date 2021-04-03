@@ -19,13 +19,13 @@ namespace _4kas
         public MainPage()
         {
             InitializeComponent();
+            
         }
 
 
         protected override async void OnAppearing()
         {
             base.OnAppearing();
-
             var weatherData = await GetWeatherData();
 
             tempLabel.Text = ConvertToCelcius(weatherData.main.temp).ToString();
@@ -33,6 +33,7 @@ namespace _4kas
             conditionLabel.Text = weatherData.weather[0].main;
             locationLabel.Text = weatherData.sys.country;
 
+            MainActivityIndicator.IsRunning = false;
 
         }
 

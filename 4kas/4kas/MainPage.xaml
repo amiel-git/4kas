@@ -5,6 +5,7 @@
              >
 
     <StackLayout Padding="10,20">
+
         
         <StackLayout.Background>
             <LinearGradientBrush StartPoint="0,0"
@@ -41,8 +42,13 @@
                        FontAttributes="Bold"
                        Margin="0,20,0,0"
                        />
-            
-             </StackLayout>
+                <ActivityIndicator x:Name="MainActivityIndicator" 
+                           IsRunning="True" 
+                           HorizontalOptions="Center" 
+                           VerticalOptions="Center"
+                           
+                           />
+            </StackLayout>
 
             <Label  x:Name="conditionLabel"
                     FontSize="30" 
@@ -60,6 +66,6 @@
                TextColor="{StaticResource whiteColor}"
                />
 
-        
     </StackLayout>
+    
 </ContentPage>
