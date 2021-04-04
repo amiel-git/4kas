@@ -38,6 +38,7 @@ namespace Models
         public IList<Weather> weather { get; set; }
         public Main main { get; set; }
         public Sys sys { get; set; }
+        public string name { get; set; }
     }
 
 }

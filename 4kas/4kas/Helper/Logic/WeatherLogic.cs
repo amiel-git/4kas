@@ -20,9 +20,11 @@ namespace Helper.Logic
         {
             string url = "";
             var locator = CrossGeolocator.Current;
+
             if (locator.IsGeolocationAvailable)
             {
                 var position = await locator.GetPositionAsync();
+
                 url = new Constants().GetURL(position.Latitude, position.Longitude);
             }
 
@@ -44,6 +46,24 @@ namespace Helper.Logic
 
             }
             
+            return weatherData;
+
+        }
+
+        public static async Task<WeatherRoot> GetWeatherDataByCity(string city)
+        {
+            string url = new Constants().GetURLByCity(city);
+            WeatherRoot weatherData = new WeatherRoot();
+            using (HttpClient client = new HttpClient())
+            {
+                var response = await client.GetAsync(url);
+                var json = await response.Content.ReadAsStringAsync();
+
+                weatherData = JsonConvert.DeserializeObject<WeatherRoot>(json);
+
+
+            }
+
             return weatherData;
 
         }

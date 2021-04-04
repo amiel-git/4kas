@@ -25,27 +25,41 @@ namespace _4kas
         protected override async void OnAppearing()
         {
             base.OnAppearing();
+                try
+                {
+                    var weatherData = await WeatherLogic.GetWeatherData();
 
-            try
-            {
-                var weatherData = await WeatherLogic.GetWeatherData();
+                    tempLabel.Text = WeatherLogic.ConvertToCelcius(weatherData.main.temp).ToString();
+                    tempTypeLabel.IsVisible = true;
+                    conditionLabel.Text = weatherData.weather[0].main;
+                    locationLabel.Text = $"{weatherData.name}, {weatherData.sys.country}";
 
-                tempLabel.Text = WeatherLogic.ConvertToCelcius(weatherData.main.temp).ToString();
-                tempTypeLabel.IsVisible = true;
-                conditionLabel.Text = weatherData.weather[0].main;
-                locationLabel.Text = weatherData.sys.country;
+                    MainActivityIndicator.IsRunning = false;
+                }
 
-                MainActivityIndicator.IsRunning = false;
-            }
-
-            catch(Exception e)
-            {
-                await DisplayAlert("Problem fetching data", e.Message, "Ok");
-            }
+                catch (Exception e)
+                {
+                    await DisplayAlert("Problem fetching data", "Please turn your location on and restart the app", "Ok");
+                }
 
 
         }
 
+
+        public async void SearchWeather(object sender, EventArgs e)
+        {
+            MainActivityIndicator.IsRunning = true;
+            string cityName = searchEntry.Text;
+
+            var weatherData = await WeatherLogic.GetWeatherDataByCity(cityName);
+
+            tempLabel.Text = WeatherLogic.ConvertToCelcius(weatherData.main.temp).ToString();
+            tempTypeLabel.IsVisible = true;
+            conditionLabel.Text = weatherData.weather[0].main;
+            locationLabel.Text = $"{weatherData.name}, {weatherData.sys.country}";
+
+            MainActivityIndicator.IsRunning = false;
+        }
 
 
 

@@ -25,8 +25,16 @@
                 <ColumnDefinition Width="100"/>
             </Grid.ColumnDefinitions>
 
-            <Entry x:Name="searchEntry" Placeholder="Country.." PlaceholderColor="AntiqueWhite"/>
-            <Button Text="Search" Grid.Column="1" HeightRequest="40" VerticalOptions="Center"/>
+            <Entry x:Name="searchEntry" 
+                   Placeholder="City........" 
+                   PlaceholderColor="AntiqueWhite"
+                   />
+            <Button Text="Search" 
+                    Clicked="SearchWeather" 
+                    Grid.Column="1" 
+                    HeightRequest="40" 
+                    VerticalOptions="Center"
+                    />
         </Grid>
         
         <Label Text="4Kas" 
