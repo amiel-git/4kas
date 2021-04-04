@@ -5,7 +5,11 @@
     <Application.Resources>
         <ResourceDictionary>
             <Color x:Key="whiteColor">#E5E5E5</Color>
-            
+            <Style TargetType="Button">
+                <Setter Property="BackgroundColor" Value="#405e7a"/>
+                <Setter Property="CornerRadius" Value="10"/>
+                <Setter Property="Padding" Value="10,0"/>
+            </Style>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

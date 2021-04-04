@@ -11,8 +11,8 @@ namespace _4kas
             InitializeComponent();
 
             MainPage = new MainPage();
-        }
 
+        }
         protected override void OnStart()
         {
         }
