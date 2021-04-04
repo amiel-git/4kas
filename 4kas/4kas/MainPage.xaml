@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="_4kas.MainPage"
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
              >
 
         
@@ -46,8 +47,17 @@
                />
 
         <StackLayout Orientation="Vertical" Spacing="0" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Margin="0,-250,0,0">
-            <StackLayout Orientation="Horizontal">
 
+            <ffimageloading:CachedImage 
+                   x:Name="weatherImage" 
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="FillAndExpand"
+                    HeightRequest="250"
+                    Aspect="AspectFit"
+                   />
+            
+            <StackLayout Orientation="Horizontal" Margin="0,-50,0,0">
+                
                 <Label x:Name="tempLabel"
                        FontSize="150" 
                        TextColor="{StaticResource whiteColor}" 

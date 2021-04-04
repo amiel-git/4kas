@@ -33,6 +33,7 @@ namespace _4kas
                     tempTypeLabel.IsVisible = true;
                     conditionLabel.Text = weatherData.weather[0].main;
                     locationLabel.Text = $"{weatherData.name}, {weatherData.sys.country}";
+                    weatherImage.Source = $"http://openweathermap.org/img/wn/{weatherData.weather[0].icon}@4x.png";
 
                     MainActivityIndicator.IsRunning = false;
                 }
@@ -52,12 +53,11 @@ namespace _4kas
             string cityName = searchEntry.Text;
 
             var weatherData = await WeatherLogic.GetWeatherDataByCity(cityName);
-
+            weatherImage.Source = $"http://openweathermap.org/img/wn/{weatherData.weather[0].icon}@4x.png";
             tempLabel.Text = WeatherLogic.ConvertToCelcius(weatherData.main.temp).ToString();
             tempTypeLabel.IsVisible = true;
             conditionLabel.Text = weatherData.weather[0].main;
             locationLabel.Text = $"{weatherData.name}, {weatherData.sys.country}";
-
             MainActivityIndicator.IsRunning = false;
         }
 
